@@ -1,0 +1,49 @@
+<header>
+    <nav>
+        <%= link_to root_path do %>
+            <%= image_tag "maino_logo.svg", alt: "Maino Logo", class: "maino" %>
+        <% end %>
+
+        <div class="search">
+            <%= form_with url: search_tags_path, method: :get, local: true do |f| %>
+                <%= f.text_field :tag, placeholder: t("search_placeholder"), name: "tag" %>
+                <button type="submit" class="search-button" aria-label="Pesquisar">
+                    <img src="https://img.icons8.com/ios/50/FFFFFF/search--v1.png" alt="ícone de pesquisa"/>
+                </button>
+            <% end %>
+        </div>
+
+        <div class="users-actions">
+            <% if I18n.locale == :en %>     
+                <%= link_to request.params.merge locale: 'pt-BR', only_path: true do %>
+                    <span class="lang-type">pt</span>
+                <% end %>
+            <% elsif I18n.locale == :'pt-BR' %>
+                <%= link_to root_path locale: 'en' do %>
+                    <span class="lang-type">en</span>
+                <% end %>
+            <% end %>
+
+            <% if user_signed_in? %>
+                <div class="header-gap">
+                    <%= link_to user_posts_path(user_id: current_user.id), class: 'text-blue-500 hover:underline' do %>
+                        <span>Posts do Usuário</span>
+                    <% end %>
+                    
+                    <%= button_to new_post_path, method: :get, class: "create" do %>
+                        <%= t('create_post') %>
+                        <span>&plus;</span>
+                    <% end %>
+
+                    <%= button_to t('profile'), user_path(current_user), method: :get, class: "button profile" %>
+
+                    <%= button_to t('log_out'), destroy_user_session_path, method: :delete, class: "button signout" %>
+
+                </div>
+            <% else %>  
+                <button class="button signin"><%= link_to t('sign_in'), new_user_session_path %></button>
+                <button class="button signup"><%= link_to t('sign_up'), new_user_registration_path, method: :get %></button>
+            <% end %>
+        </div>
+    </nav>
+</header>

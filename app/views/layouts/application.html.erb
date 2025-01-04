@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield :title || "Mainô Blog" %></title>
+    <%= favicon_link_tag "favicon.svg" %>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+
+    <%= render "layouts/header" %>
+    
+    <main>
+      <% if notice || alert %>
+      <div class="flash">
+        <p class="alert"><%= alert %></p>
+      </div>
+      <% end %>
+      <%= yield %>
+    </main>
+  </body>
+</html>
