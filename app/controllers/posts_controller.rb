@@ -53,7 +53,6 @@ class PostsController < ApplicationController
 
     if @post.save
       redirect_to @post, notice: t(".success")
-      UserMailer.with(user: current_user).welcome_message.deliver_later
     else
       flash.now[:alert] = t(".error")
       render "new", status: :unprocessable_entity
