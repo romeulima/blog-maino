@@ -1,0 +1,42 @@
+en:
+  create_post: Create Post
+  activerecord:
+    models:
+      post:
+        one: Post
+        other: Posts
+    attributes:
+      post:
+        title: Title
+        content: Content
+  posts:
+    create:
+      success: Post created successfully!
+      error: Sorry, there was a problem creating your post. Please try again.
+    update:
+      success: Post updated successfully!
+      error: Sorry, there was a problem updating your post. Please try again.
+      not_found: Sorry, the post you are looking for does not exist.
+    destroy:
+      success: Post deleted successfully!
+      error: Sorry, there was a problem deleting your post. Please try again.
+    upload:
+      success: File uploaded successfully! Processing...
+      error: Sorry, there was a problem uploading your file. Please try again.
+      invalid: Sorry, the uploaded file is invalid. Please try again.
+      empty: Sorry, the uploaded file is empty. Please try again.
+    show:
+      not_found: Sorry, the post you are looking for does not exist.
+    edit:
+      not_found: Sorry, the post you are looking for does not exist.
+    post_btn: Post
+  whithout_post: "No publications created"
+  about: "About us"
+  comex: "Mainô is a Brazilian company that has been operating in foreign trade for over 13 years. Our commitment is to simplify the import process through technology. We offer technological solutions to ease the complexities faced by companies importing and distributing goods in Brazil."
+  sales: "Mainô allows you to manage your purchases and sales through a flow, making it easy to see. Close more deals and control your accounts payable and receivable with our system."
+  invoice: "Issue all kinds of invoices in just a few clicks. Mainô is integrated with IOB's tax manager, thus keeping product tax rates up to date at all times."
+  create-post: "Create a new post"
+  post-title: "Post title"
+  post-content: "Content"
+  tag-input: 'Tags'
+  button-submit: "Create post"

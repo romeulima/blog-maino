@@ -1,0 +1,42 @@
+pt-BR:
+  create_post: Criar Publicação
+  activerecord:
+    models:
+      post:
+        one: Publicação
+        other: Publicações
+    attributes:
+      post:
+        title: Título
+        content: Conteúdo
+  posts:
+    create:
+      success: Publicação enviada com sucesso!
+      error: Desculpe, houve um problema ao criar sua publicação. Por favor, tente novamente.
+    update:
+      success: Publicação atualizada com sucesso!
+      error: Desculpe, houve um problema ao atualizar sua publicação. Por favor, tente novamente.
+      not_found: Desculpe, a publicação que você procura não existe.
+    destroy:
+      success: Publicação excluída com sucesso!
+      error: Desculpe, houve um problema ao excluir sua publicação. Por favor, tente novamente.
+    upload:
+      success: Arquivo enviado com sucesso! Processando...
+      error: Desculpe, houve um problema ao enviar seu arquivo. Por favor, tente novamente.
+      invalid: Desculpe, o arquivo enviado não é válido. Por favor, tente novamente.
+      empty: Desculpe, o arquivo enviado está vazio. Por favor, tente novamente.
+    show:
+      not_found: Desculpe, a publicação que você procura não existe.
+    edit:
+      not_found: Desculpe, a publicação que você procura não existe.
+    post_btn: Publicar
+  whithout_post: "Nenhuma publicação criada"
+  about: "Sobre nós"
+  comex: "A Mainô é uma empresa brasileira que atua há mais de 13 anos no comércio exterior. Nosso compromisso é descomplicar o processo de importação através da tecnologia. Oferecemos soluções tecnológicas para amenizar as complexidades enfrentadas por empresas importadoras e distribuidoras de mercadorias no Brasil."
+  sales: "O Mainô permite que você gerencie suas Compras e Vendas através de um fluxo, facilitando a visualização. Feche mais negócios e controle suas contas a pagar e a receber com nosso sistema."
+  invoice: "Emita todo tipo de Nota Fiscal em poucos cliques. O Mainô é integrado com o gestor fiscal da IOB, mantendo assim as alíquotas de impostos dos produtos sempre atualizadas."
+  create-post: "Criar um novo post"
+  post-title: "Título do post"
+  post-content: "Conteúdo"
+  tag-input: 'Tags'
+  button-submit: "Criar post"

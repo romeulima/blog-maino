@@ -1,0 +1,16 @@
+en:
+  reception: 'Welcome to Mainô'
+  is_account: "Don't have an account?"
+  login: 'Log in'
+  user_email: 'Username or email'
+  create: 'Create an account'
+  username: "Username"
+  edit: 'Edit profile'
+  name: "Name"
+  forgot: 'Forgot your password?'
+  reset: 'Reset password'
+  reset_instructions: 'Instructions to reset your password'
+  change_password: 'Change password'
+  confirm_password: 'Confirm the new password'
+  new_password: 'New password'
+  change: 'Change'

@@ -1,0 +1,16 @@
+pt-BR:
+  reception: 'Bem vindo(a) a Mainô'
+  is_account: 'Não possui uma conta?'
+  login: 'Entrar'
+  user_email: 'Usuário ou email'
+  create: "Criar uma conta"
+  username: "Usuário"
+  edit: 'Editar perfil'
+  name: "Nome"
+  forgot: 'Esqueceu sua senha?'
+  reset: 'Redefinir senha'
+  reset_instructions: 'Instruções para redefinir sua senha'
+  change_password: 'Alterar senha'
+  confirm_password: 'Confirme a nova senha'
+  new_password: 'Nova senha'
+  change: 'Alterar'
