@@ -1,0 +1,45 @@
+<div class="post-detail">
+  <h1 class="post-title-d"><%= post.title %></h1>
+  <p class="post-content-d"><%= post.content %></p>
+  <div class="post-tags-d">
+    <% post.tags.each do |tag| %>
+      <%= link_to tag do %>
+        <span class="tag-d"><%= tag.name %></span>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="post-meta-d">
+    <%= l post.created_at.to_date, format: :long %>, <%= post.user.name %>
+  </div>
+</div>
+  
+<div class="comment-detail">
+  <h2><%= t('activerecord.models.comment.other') %></h2>
+  <% if post.comments.any? %>
+    <% post.comments.each do |comment| %>
+      <div class="comment">
+        <p class="comment-content"><%= comment.content %></p>
+        <div class="comment-meta">
+          <%= l comment.created_at, format: :short %> <%= comment.user.present? ? comment.user.username : "" %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <p><%= t('comments.no_comments') %></p>
+  <% end %>
+</div>
+
+<% if post.persisted? %>
+  <div class="comment-detail">
+    <%= form_with model: [post, Comment.new], local: true do |form| %>
+      <%= form.text_area :content, placeholder: t('comments.comment_placeholder'), class: "comment-textarea" %>
+      <%= form.submit t('comments.comment_btn'), class: "comment-submit" %>
+    <% end %>
+  </div>
+<% end %>
+
+
+
+
+
+

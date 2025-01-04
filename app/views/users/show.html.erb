@@ -1,0 +1,16 @@
+
+<% content_for :title, t('profile') %>
+
+<div class="profile-card">
+    <%= link_to root_path, class: "close-button" do %>
+        &times
+    <% end %>
+    <%= image_tag "https://github.com/#{@user.username}.png" %>
+    <h2><%= @user.name %></h2>
+    <p>Email: <%= @user.email %></p>
+    <p class="username">@<%= @user.username %></p>
+
+    <% if @user == current_user %>
+        <%= link_to t('edit_btn'), edit_user_registration_path %>
+    <% end %>
+</div>

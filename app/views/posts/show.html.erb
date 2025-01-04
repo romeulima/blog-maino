@@ -1,0 +1,13 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, @post.title %>
+
+<%= render 'post_details', post: @post %>
+
+<div class="post-actions">
+  <% if current_user == @post.user %>
+    <%= link_to t('edit_btn'), edit_post_path(@post), class: "edit" %> |
+    <%= button_to t('delete_btn'), @post, method: :delete, class: "delete" %>
+  <% end %>
+  <%= link_to t('back'), posts_path, class: "back" %>
+</div>

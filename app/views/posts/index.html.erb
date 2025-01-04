@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Mainô Blog" %>
+  
+<div class="posts">
+  <% unless @posts.empty? %>
+    <% @posts.each do |post| %>
+      <%= render post %>
+    <% end %>
+    <%= paginate @posts, window: 1, outer_window: 0, left: 1, right: 1 %>
+  <% else %>
+    <p><%= t('whithout_post') %></p>
+  <% end %>
+</div>

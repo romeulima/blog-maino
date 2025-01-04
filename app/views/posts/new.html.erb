@@ -1,0 +1,27 @@
+<% content_for :title, t('create-t') %>
+
+
+<%= render "form", post: @post %>
+
+
+<% unless @post.persisted? %>
+  <div class="upload">
+    <%= form_with url: posts_upload_path do |f| %>
+      <%= f.file_field :file, accept: '.txt', id: 'upload-file' %>
+      <%= f.submit hidden: true, id: 'upload-submit' %>
+    <% end %>
+  </div>
+<% end %>
+
+<div class="company-info">
+  <h3><%= t('about') %></h3>
+  <p><%= t('comex') %></p>
+  <p><%= t('sales') %></p>
+  <p><%= t('invoice') %></p>
+</div>
+
+<script>
+  document.querySelector('#upload-file').addEventListener('change', function() {
+    document.querySelector('#upload-submit').click();
+  });
+</script>

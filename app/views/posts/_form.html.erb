@@ -1,0 +1,34 @@
+<%= form_with model: post do |form| %>
+  <% if post.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+        <% post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="create-post-container">
+    <h2><%= t('create-post') %></h2>
+
+    <div>
+      <%= form.label :title, t('post-title') %>
+      <%= form.text_field :title, placeholder: t('post_title'), class: 'input-field' %>
+    </div>
+
+    <div>
+      <%= form.label :content, t('post-content') %>
+      <%= form.text_area :content, placeholder: t('post_content'), class: 'input-field' %>
+    </div>
+
+    <div>
+      <%= form.label :tags, t('tag-input') %>
+      <%= form.text_field :tags, value: @post.tags.pluck(:name).join(', '), placeholder: 'tag1, tag2, tag3', class: 'tag-field' %>
+    </div>
+
+    <button type="submit" class="button-create"><%= post.persisted? ? 'Update' : t('button-submit') %></button>
+  </div>
+<% end %>

@@ -1,0 +1,17 @@
+<%= link_to post do %>
+    <div class="post-card">
+        <h1 class="post-title"><%= post.title.truncate(40) %></h1>
+        
+        <p class="post-content"><%= post.content.truncate(212) %></p>
+        
+        <div class="post-tags">
+            <% post.tags.each do |tag| %>
+                <span class="tag"><%= tag.name %></span>
+            <% end %>
+        </div>
+
+        <div class="post-meta">
+            <%= l post.created_at.to_date, format: :short %>, <%= post.user.username %>
+        </div>
+    </div>
+<% end %>
