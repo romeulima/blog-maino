@@ -1,0 +1,31 @@
+version: '3.9'
+services:
+  postgres:
+    container_name: maino_db
+    image: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: admin
+      POSTGRES_USER: admin
+      POSTGRES_DB: maino
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin
+    restart: always
+    depends_on:
+      - postgres
+    environment:
+      PGADMIN_DEFAULT_EMAIL: user@localhost.com
+      PGADMIN_DEFAULT_PASSWORD: password
+    ports:
+      - 80:80
+  
+  redis:
+    image: redis
+    container_name: maino_redis
+    restart: always
+    ports:
+      - 6379:6379
