@@ -1,0 +1,8 @@
+Sidekiq
+Sidekiq is the most used background job in rails.
+
+Covid
+Covid pandemy was very bad
+
+Comex
+Maino is the best comex company
