@@ -16,6 +16,8 @@ RUN bundle exec rails assets:precompile
 
 FROM ruby:3.3.5-slim
 
+ENV RAILS_ENV=production
+
 RUN apt-get update -qq && apt-get install -y --no-install-recommends \
     libpq-dev curl nodejs yarn && \
     apt-get clean && \

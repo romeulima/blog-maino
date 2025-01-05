@@ -9,6 +9,10 @@ services:
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     ports:
       - 3000:3000
+    environment:
+      - REDIS_HOST: ${REDIS_HOST}
+    networks:
+      - maino_network
 
   postgres:
     container_name: maino_db
@@ -35,6 +39,20 @@ services:
       REDIS_DATABASES: 1
     volumes:
       - redis_data:/data
+    networks:
+      - maino_network
+
+  sidekiq:
+    image: sidekiq
+    container_name: sidekiq_maino
+    command: bundle exec sidekiq
+    depends_on:
+      - postgres
+      - redis
+    environment:
+      RAILS_ENV: production
+      REDIS_HOST: ${REDIS_HOST}
+      REDIS_PORT: 6379
     networks:
       - maino_network
 
