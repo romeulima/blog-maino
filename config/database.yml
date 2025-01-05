@@ -18,15 +18,15 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: admin
-  password: admin
-  host: localhost
+  username: <%= ENV.fetch("POSTGRES_USER") { 5 } %>
+  password: <%= ENV.fetch("POSTGRES_PASSWORD") { 5 } %>
+  host: postgres
 
 
 
 development:
   <<: *default
-  database: maino
+  database: maino_development
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
@@ -85,9 +85,7 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: blog_maino_production
-    username: blog_maino
-    password: <%= ENV["BLOG_MAINO_DATABASE_PASSWORD"] %>
+    database: maino
   cache:
     <<: *primary_production
     database: blog_maino_production_cache
