@@ -593,6 +593,8 @@ main {
     gap: 10px;
     justify-content: flex-start;
     align-items: center;
+
+    margin: 12px;
   }
   
   .post-actions a,
