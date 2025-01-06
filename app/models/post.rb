@@ -28,7 +28,7 @@ class Post < ApplicationRecord
     posts = text.split("\n\n")
 
     posts.each do | post |
-      title, content = post.split("\n")
+      title, content, = post.split("\n")
       return false if title.blank? || content.blank?
     end
     true
