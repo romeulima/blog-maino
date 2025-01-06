@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for?(:title) ? yield(:title) : "Default Title" %></title>
+  </head>
+  <body>
+    <div class="login_container">
+      <%= yield %>
+    </div>
+  </body>
+</html>

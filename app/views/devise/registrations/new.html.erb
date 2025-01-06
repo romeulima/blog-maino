@@ -1,42 +1,38 @@
 <%= content_for :title, t('create') %>
 
 <div class="login_container">
-  <h1 style="font-size: 30px; color: #4e4e51;"><%= t('create') %></h1>
+  <h1 style="font-size: 30px; color: #4e4e51;"><%= t('create_account') %></h1>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %> 
+    <%= render "devise/shared/error_messages", resource: resource %>
+
     <div style="display: flex; flex-direction: column; gap: 24px;">
-      <div style="display: flex; flex-direction: column; gap: 8px;">
-        <%= f.label :name, t('name') %>
-        <%= f.text_field :name, autofocus: true %>  
-      </div>
+      <%= render "shared/form_group", f: f, field: :name, label_text: t('name') do %>
+        <%= f.text_field :name, autofocus: true, style: "width: 100%;" %>
+      <% end %>
 
-      <div style="display: flex; flex-direction: column; gap: 8px;">
-        <%= f.label :username, t('username') %>
-        <%= f.text_field :username, autofocus: true %>  
-      </div>
+      <%= render "shared/form_group", f: f, field: :username, label_text: t('username') do %>
+        <%= f.text_field :username, autofocus: true, style: "width: 100%;" %>
+      <% end %>
 
-      <div style="display: flex; flex-direction: column; gap: 8px;">
-        <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>  
-      </div>
+      <%= render "shared/form_group", f: f, field: :email, label_text: t('email') do %>
+        <%= f.email_field :email, autofocus: true, style: "width: 100%;" %>
+      <% end %>
 
-      <div style="display: flex; flex-direction: column; gap: 4px;">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-          <i>(<%= t('minimum_password_length', count: @minimum_password_length) %>)</i>
-        <% end %>
-        <%= f.password_field :password, autocomplete: "new-password" %>
-      </div>
+      <%= render "shared/form_group", f: f, field: :password, label_text: t('password') do %>
+        <%= f.password_field :password, autocomplete: "new-password", style: "width: 100%;" %>
+      <% end %>
 
-      <div style="display: flex; flex-direction: column; gap: 8px;">
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, autofocus: true, autocomplete: "new-password" %>  
-      </div>
+      <%= render "shared/form_group", f: f, field: :password_confirmation, label_text: t('password_confirmation') do %>
+        <%= f.password_field :password_confirmation, autofocus: true, autocomplete: "new-password", style: "width: 100%;" %>
+      <% end %>
 
-      <div class="actions">
-        <%= f.submit t('sign_up') %>
-      </div>
+      <%= render "shared/form_buttons", f: f, button_text: t('sign_up') %>
     </div>
   <% end %>
+
+  <div style="text-align: center; font-size: 14px;">
+    <%= t('already_have_account') %>
+    <%= link_to t('login'), new_user_session_path, style: "text-decoration: underline; color: #4e4e51; font-weight: 700;" %>
+  </div>
 </div>

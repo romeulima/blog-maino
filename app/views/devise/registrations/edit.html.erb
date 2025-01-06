@@ -4,45 +4,40 @@
   <h1 style="font-size: 30px; color: #4e4e51;"><%= t('edit') %></h1>
 
   <%= form_for(resource, as: resource_name, url: user_registration_path, method: :patch) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %> 
-      <div style="display: flex; flex-direction: column; gap: 24px;">
-        <div style="display: flex; flex-direction: column; gap: 8px;">
-          <%= f.label :name %>
-          <%= f.text_field :name, autofocus: true %>  
-        </div>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
+    <div style="display: flex; flex-direction: column; gap: 24px;">
+      <%= render "shared/form_group", f: f, field: :name, label_text: t('name') do %>
+        <%= f.text_field :name, autofocus: true, style: "width: 100%;" %>
+      <% end %>
 
-        <div style="display: flex; flex-direction: column; gap: 8px;">
-          <%= f.label :username, t('username') %>
-          <%= f.text_field :username, autofocus: true %>  
-        </div>
-        
-        <div style="display: flex; flex-direction: column; gap: 8px;">
-          <%= f.label :email %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>  
-        </div>
+      <%= render "shared/form_group", f: f, field: :username, label_text: t('username') do %>
+        <%= f.text_field :username, autofocus: true, style: "width: 100%;" %>
+      <% end %>
 
-        <div style="display: flex; flex-direction: column; gap: 8px;">
-          <%= f.label :password %>
-          <% if @minimum_password_length %>
-            <i>(<%= t('minimum_password_length', count: @minimum_password_length) %>)</i>
-          <% end %>
-          <%= f.password_field :password, autocomplete: "new-password", placeholder: t('.password_placeholder') %>
-        </div>
+      <%= render "shared/form_group", f: f, field: :email, label_text: t('email') do %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", style: "width: 100%;" %>
+      <% end %>
 
-        <div style="display: flex; flex-direction: column; gap: 8px;">
-          <%= f.label :password_confirmation %>
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-        </div>
-
-        <div style="display: flex; flex-direction: column; gap: 8px;">
-          <%= f.label :current_password %>
-          <%= f.password_field :current_password, autofocus: true, autocomplete: "current-password" %>
-        </div>
-
-        <div class="actions">
-          <%= f.submit t('edit_btn') %>
-        </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+          <i>(<%= t('minimum_password_length', count: @minimum_password_length) %>)</i>
+        <% end %>
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: t('.password_placeholder') %>
       </div>
+
+      <%= render "shared/form_group", f: f, field: :password_confirmation, label_text: t('password_confirmation') do %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", style: "width: 100%;" %>
+      <% end %>
+
+      <%= render "shared/form_group", f: f, field: :current_password, label_text: "" do %>
+        <%= f.password_field :current_password, autofocus: true, autocomplete: "current-password", style: "width: 100%;" %>
+      <% end %>
+
+      <div class="actions">
+        <%= f.submit t('edit_btn') %>
+      </div>
+    </div>
   <% end %>
 </div>

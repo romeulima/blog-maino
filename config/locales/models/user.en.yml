@@ -9,3 +9,4 @@ en:
         name: Name
         email: Email
         password: Password
+  my_posts: "My posts"

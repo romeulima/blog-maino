@@ -1,7 +1,6 @@
 <%= content_for :title, t('login') %>
 
 <div class="login_container">
-
   <h1 style="font-size: 30px; color: #4e4e51;"><%= t('reception') %></h1>
 
   <div style="text-align: center; font-size: 14px;">
@@ -11,26 +10,23 @@
 
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>  
-    <div style="display: flex; flex-direction: column; gap: 24px;">
-      <div style="display: flex; flex-direction: column; gap: 8px;">
-        <%= f.label :login, t('user_email') %>
-        <%= f.text_field :login, autofocus: true, style: "width: 100%;" %>  
-      </div>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    
+    <div style="<%= form_container_styles %>">
+      <%= render "shared/form_group", f: f, field: :login, label_text: t('user_email') do %>
+        <%= f.text_field :login, autofocus: true, style: "width: 100%;" %>
+      <% end %>
 
-      <div style="display: flex; flex-direction: column; gap: 4px;">
-        <%= f.label :password %>
+      <%= render "shared/form_group", f: f, field: :password, label_text: t('password') do %>
         <%= f.password_field :password, autocomplete: "current-password" %>
-      </div>
+      <% end %>
 
       <div style="text-align: center; font-size: 14px;">
         <%= t('forgot') %>
         <%= link_to t('reset'), new_user_password_path, style: "text-decoration: underline; color: #4e4e51; font-weight: 700;" %>
       </div>
 
-      <div class="actions">
-        <%= f.submit t('login') %>
-      </div>
+      <%= render "shared/form_buttons", f: f, button_text: t('login') %>
     </div>
   <% end %>
 </div>
-

@@ -14,3 +14,6 @@ pt-BR:
   confirm_password: 'Confirme a nova senha'
   new_password: 'Nova senha'
   change: 'Alterar'
+  already_have_account: 'Já possui uma conta'
+  password: 'Senha'
+  password_confirmation: 'Confirmação de senha'

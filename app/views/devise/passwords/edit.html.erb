@@ -7,7 +7,7 @@
     <%= render "devise/shared/error_messages", resource: resource %>
     <%= f.hidden_field :reset_password_token %>  
     
-    <div style="display: flex; flex-direction: column; gap: 24px;">
+    <div style="<%= form_container_styles %>">
       <div style="display: flex; flex-direction: column; gap: 8px;">
         <%= f.label :password, t("new_password") %>
         <% if @minimum_password_length %>
