@@ -133,7 +133,8 @@ This application contains all this and more
 
 ## Links
 - Repository: https://github.com/romeulima/blog-maino/
-- LinkedIn: https://linkedin.com/in/sromeulima
+- LinkedIn: https://linkedin.com/in/sromeulima/
+- Application: http://165.227.27.64/
 
 ## Licensing
 "The code in this project is licensed under MIT license."
