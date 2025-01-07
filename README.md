@@ -1,44 +1,43 @@
 ![Logo of the project](https://i0.wp.com/maino.com.br/wp-content/uploads/2021/11/Logo-Oficial.webp?fit=300%2C129&ssl=1)
 
 # Mainô Blog
-> Additional information or tagline
 
-I developed a blog as part of a technical challenge for Mainô, a company focused on technological solutions for foreign trade. This project aims to demonstrate skills in backend development using Ruby on Rails. This includes functionalities specified by the company itself. This project also reflects the ability to create solid, optimized and adaptable backend solutions, following the good practices and standards expected in the industry.
+Desenvolvi um blog como parte de um desafio técnico para a Mainô, uma empresa focada em soluções tecnológicas para comércio exterior. Esse projeto tem como objetivo demonstrar habilidades em desenvolvimento backend utilizando Ruby on Rails. Isso inclui funcionalidades especificadas pela própria empresa. Esse projeto também reflete a capacidade de criar soluções de backend sólidas, otimizadas e adaptáveis, seguindo as boas práticas e padrões esperados no setor.
 
-## Installing / Getting started
+## Instalação / Primeiros passos
 
-To install and run this application, you will need Docker installed on your machine. If you don't have Docker yet, follow the instructions in the link below to install Docker:
+Para instalar e executar esse aplicativo, você precisará do Docker instalado em seu computador. Se você ainda não tem o Docker, siga as instruções no link abaixo para instalar o Docker:
 
 ```shell
 https://docs.docker.com/get-started/get-docker/
 ```
 
-Once Docker is installed, verify the installation with the following command:
+Depois que o Docker estiver instalado, verifique a instalação com o seguinte comando:
 ```sh
 $ docker run hello-world
 ```
 
-### Initial Configuration
+### Configuração inicial
 
-You will initially need two files: 
+Inicialmente, você precisará de dois arquivos:
 ```shell
 .env
 config/master.key
 ```
-> .env is used to define some environment variables, such as database variables and application variables
+> .env é usado para definir algumas variáveis de ambiente, como variáveis de banco de dados e variáveis de aplicativo
 
-> master.key is used to decrypt the config/credentials.yml.enc file, which holds sensitive credentials for your application.
+> master.key é usado para descriptografar o arquivo config/credentials.yml.enc, que contém credenciais confidenciais para o seu aplicativo.
 
-### Steps to Generate master.key
+### Etapas para gerar a master.key
 
-Run this command:
+Execute este comando:
 ```shell
 rails secret
 ```
 ```shell
 bin/rails credentials:edit
 ```
-Once you have the master.key, the bin/rails credentials:edit command can be used to edit the credentials in config/credentials.yml.enc. When you run this command, it uses the key to decrypt the credentials.yml.enc file for editing.
+Depois que você tiver a master.key, o comando bin/rails credentials:edit poderá ser usado para editar as credenciais em config/credentials.yml.enc. Quando você executa esse comando, ele usa a chave para descriptografar o arquivo credentials.yml.enc para edição.
 
 Adicione as credenciais do Gmail no arquivo
 ```yaml
@@ -46,9 +45,9 @@ smtp:
   user-name: 'email@gmail.com'
   password: 'senha'
 ```
-The password is the gmail password. If you have 2Fa, generate an app password and use that instead. To generate the password, go to [https://support.google.com/accounts/answer/185833?hl=pt-br]
+A senha é a senha do gmail. Se você tiver o 2Fa, gere uma senha de aplicativo e use-a em vez disso. Para gerar a senha, vá para [https://support.google.com/accounts/answer/185833?hl=pt-br]
 
-#### If you haven't ruby you can make this:
+#### Se você não tiver ruby, poderá fazer isso:
 ```shell
 docker pull ruby
 docker run -it --rm ruby bash
@@ -57,18 +56,18 @@ rails secret
 exit
 ```
 
-Copy the generated secret into config/master.key
+Copie o segredo gerado para config/master.key
 
-## Developing
+## Desenvolvimento
 
-Clone this repository to your machine:
+Clone esse repositório em seu computador:
 
 ```shell
 git clone git@github.com:romeulima/blog-maino.git
 cd blog-maino/
 ```
 
-Make sure you have already included the .env in the root of the project and config/master.key
+Certifique-se de que você já incluiu o .env na raiz do projeto e config/master.key
 
 ### Building
 
@@ -81,32 +80,32 @@ $ docker-compose run web bundle exec rails db:migrate
 
 $ docker-compose up
 ```
-Now you can access localhost <strong>without port</strong>
+Agora você pode acessar o localhost <strong>sem porta</strong>
 
 ## Features
 
-### Public Area (Logged Out)
-* View posts published by all users, ordered from newest to oldest.
-* Posts should be paginated after 3 posts, meaning the 4th post will move to page 2 and so on, with each page containing up to 3 posts.
-* Post anonymous comments.
-* Register a new user.
-* Login with an existing user.
-* Recover the user’s password.
+### Área pública (deslogada)
+* Ver as postagens publicadas por todos os usuários, ordenadas da mais nova para a mais antiga.
+* As postagens devem ser paginadas após 3 postagens, o que significa que a 4ª postagem será movida para a página 2 e assim por diante, com cada página contendo até 3 postagens.
+* Publicar comentários anônimos.
+* Registrar um novo usuário.
+* Fazer login com um usuário existente.
+* Recuperar a senha do usuário.
 
-### Logged-in Area
-* Write and publish a post.
-* Edit and delete posts previously published by the logged-in user.
-* Comment with an identified user login.
-* Edit the user profile.
-* Change the logged-in user's password.
+### Área logada
+* Escrever e publicar uma postagem.
+* Editar e excluir postagens publicadas anteriormente pelo usuário conectado.
+* Comentar com um login de usuário identificado.
+* Editar o perfil do usuário.
+* Alterar a senha do usuário conectado.
 
-### Optional Features
-* Write simple automated tests
-* Implement internationalization
-* Add tags to posts and provide filters to use the registered tags. Tags should be implemented as a new table in the model, associated with the posts.
+### Features opcionais
+* Escrever testes automatizados simples
+* Implementar a internacionalização
+* Adicionar tags aos posts e fornecer filtros para usar as tags registradas. As tags devem ser implementadas como uma nova tabela no modelo, associada aos posts.
 
-### Super Differentiator
-* Enable TXT file upload for creating one or more posts or creating multiple tags, using Sidekiq for asynchronous processing (if possible).
+### Super diferencial
+* Ative o upload de arquivos TXT para criar um ou mais posts ou criar várias tags, usando o Sidekiq para processamento assíncrono (se possível).
 ```
   Post Title
   Post content
@@ -116,25 +115,25 @@ Now you can access localhost <strong>without port</strong>
   Post content
   ```
 
-This application contains all this and more
+Este aplicação contém tudo isso e muito mais
 
-## Additional Features
-* Design a Docker environment for the application to ease deployment and simplify running the application locally on any machine.
-* Implement email sending functionality.
-* Create a page to display posts for each individual user.
-* Creativity
+## Features adicionais
+* Projete um ambiente Docker para o aplicativo a fim de facilitar a implantação e simplificar a execução do aplicativo localmente em qualquer máquina.
+* Implementar a funcionalidade de envio de e-mail.
+* Criar uma página para exibir postagens para cada usuário individual.
+* Criatividade
 
-## Future tasks
-- Add CI/CD pipeline
-- View to show posts by a specific user
-- Delete comment
-- Reply to comment
-- Change the search to filter similar tags and not just the same ones
+## Tasks futuras
+- Adicionar pipeline de CI/CD
+- Exibir para mostrar postagens de um usuário específico
+- Excluir comentário
+- Responder ao comentário
+- Altere a pesquisa para filtrar tags semelhantes e não apenas as mesmas
 
 ## Links
-- Repository: https://github.com/romeulima/blog-maino/
+- Repositório: https://github.com/romeulima/blog-maino/
 - LinkedIn: https://linkedin.com/in/sromeulima/
-- Application: http://165.227.27.64/
+- Aplicação: http://165.227.27.64/
 
-## Licensing
-"The code in this project is licensed under MIT license."
+## Licença
+“O código deste projeto está licenciado sob a licença MIT.”
