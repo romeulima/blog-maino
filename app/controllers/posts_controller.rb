@@ -28,9 +28,6 @@ class PostsController < ApplicationController
 
 
   def update
-    @post = Post.find_by(id: params[:id])
-    return redirect_to root_path, alert: t("not_found") unless @post.present?
-
     if @post.update(post_params.except(:tags))
       @post.update_post_tags(post_params[:tags])
       redirect_to @post, notice: t(".success")
@@ -42,7 +39,6 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy!
-
 
     redirect_to posts_path, status: :see_other, notice: "Post was successfully destroyed."
   end

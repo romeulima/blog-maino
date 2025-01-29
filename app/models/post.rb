@@ -13,7 +13,8 @@ class Post < ApplicationRecord
     return if tags.blank?
 
     tags.split(",").each do |tag|
-      self.tags << Tag.find_or_create_by(name: tag.strip)
+      tag = I18n.transliterate(tag.strip.downcase)
+      self.tags << Tag.find_or_create_by(name: tag)
     end
   end
 
